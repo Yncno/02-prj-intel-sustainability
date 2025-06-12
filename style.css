@@ -1,1 +1,218 @@
+/* Import the Roboto font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+/* Apply the Roboto font to the whole page */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  /* ...existing code... */
+}
+
+/* Style the header section */
+header {
+  background: linear-gradient(135deg, #2196f3 0%, #002171 100%);
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Center the main heading and make it white */
+header h1 {
+  margin-top: 20px;
+  margin-bottom: 28px;
+  font-size: 2.8em;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* Add a thin light blue line under the h1 */
+header .header-line {
+  width: 60px;
+  height: 3px;
+  background: #6ec6ff;
+  margin: 0 auto 24px auto;
+  border-radius: 2px;
+}
+
+/* Center the subheading/description and make it white */
+header p {
+  margin: 0 auto;
+  max-width: 500px;
+  font-size: 1em;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* Make sure the logo is centered and sized nicely */
+header img {
+  display: block;
+  margin: 0 auto;
+  max-width: 78px;
+  height: auto;
+}
+
+/* Add a grey background for the timeline cards section */
+section {
+  background: #f5f5f5; /* Light grey background */
+  padding-top: 20px;   /* Add some space above */
+  padding-bottom: 20px;/* Add some space below */
+}
+
+/* Timeline cards container uses flexbox for horizontal scrolling */
+.timeline-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 32px 0 24px 0;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #2196f3 #e3f2fd;
+
+  /* Enable scroll snap for smooth horizontal navigation */
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+}
+
+/* Each timeline card */
+.timeline-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  min-width: 220px;
+  max-width: 250px;
+  width: 240px;
+  height: 240px;
+  position: relative;
+  transition: transform 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+
+  /* Snap each card to the start of the scroll container */
+  scroll-snap-align: start;
+}
+
+/* Make cards a bit bigger on hover */
+.timeline-card:hover {
+  transform: scale(1.04);
+}
+
+/* Card content (h2, h3, img) */
+.card-content {
+  padding: 16px 12px;
+  text-align: left;
+  display: block; /* Remove flex so content stacks normally */
+}
+
+/* Card year */
+.timeline-card h2 {
+  font-size: 1.3em;
+  color: #002171;         /* Switched: now dark blue */
+  margin: 0 0 6px 0;
+  text-align: left;
+}
+
+/* Card title */
+.timeline-card h3 {
+  font-size: 1.1em;
+  color: #1565c0;         /* Switched: now lighter blue */
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+/* Card image */
+.timeline-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px; /* Same as left/right padding for even spacing */
+  margin-top: 0;       /* Remove extra space above */
+}
+
+/* Overlay that appears on hover */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 33, 113, 0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;      /* Stack overlay content vertically */
+  align-items: flex-start;     /* Align text to the left */
+  justify-content: flex-start; /* Start content at the top */
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 18px 12px;          /* Match card padding, add space at top/left/right */
+  box-sizing: border-box;
+  text-align: left;
+  pointer-events: none;
+  overflow-y: auto;            /* Allow scrolling if text is too long */
+}
+
+/* Show overlay on hover */
+.timeline-card:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Make sure the overlay text is visible and readable */
+.card-overlay p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4;
+  color: #fff;
+  width: 100%;
+  /* No text cut off at the top */
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 700px) {
+  .timeline-cards {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 20px;
+    padding: 24px 0;
+    /* Disable scroll snap on small screens (vertical) */
+    scroll-snap-type: none;
+  }
+  .timeline-card {
+    width: 90vw;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    scroll-snap-align: none;
+  }
+  header {
+    padding: 20px 0; /* Make the hero section smaller on small screens */
+  }
+  header h1 {
+    font-size: 1.5em; /* Smaller heading for small screens */
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
+  header .header-line {
+    margin-bottom: 16px;
+  }
+  header p {
+    font-size: 0.95em; /* Slightly smaller paragraph */
+    max-width: 90vw;
+  }
+  header img {
+    max-width: 60px; /* Smaller logo */
+  }
+}
+
+/* Style the instruction text at the bottom */
+body > p {
+  text-align: center;      /* Center the text */
+  font-size: 0.9em;        /* Make it smaller */
+  color: #1565c0;          /* Optional: subtle blue for clarity */
+  margin-top: 12px;        /* Add a little space above */
+}
+
 /* Add your CSS here */

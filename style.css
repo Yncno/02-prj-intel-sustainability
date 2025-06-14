@@ -162,7 +162,7 @@ section {
 /* Make sure the overlay text is visible and readable */
 .card-overlay p {
   margin: 0;
-  font-size: 1em;
+  font-size: 0.9em;      /* Reduced text size for hover info */
   line-height: 1.4;
   color: #fff;
   width: 100%;

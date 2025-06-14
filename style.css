@@ -124,10 +124,10 @@ section {
 /* Card image */
 .timeline-card img {
   width: 100%;
-  height: 120px;
+  height: 130px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 12px; /* Same as left/right padding for even spacing */
+  margin-bottom: 0px; /* Same as left/right padding for even spacing */
   margin-top: 0;       /* Remove extra space above */
 }
 
@@ -176,13 +176,12 @@ section {
     max-width: 100%;
     gap: 20px;
     padding: 24px 0;
-    /* Disable scroll snap on small screens (vertical) */
     scroll-snap-type: none;
   }
   .timeline-card {
     width: 90vw;
     min-width: 0;
-    max-width: 100%;
+    max-width: 320px;    /* Reduced max width for cards on small screens */
     height: auto;
     margin: 0 auto;
     scroll-snap-align: none;
@@ -215,4 +214,5 @@ body > p {
   margin-top: 12px;        /* Add a little space above */
 }
 
+/* Add your CSS here */
 /* Add your CSS here */
